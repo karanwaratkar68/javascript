@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <script>
+            function dataAvailable()
+            {
+               // alert("hello2");
+                 if(this.readyState==4 && this.status==200)
+                 {
+                   // alert("hello3");
+                    var jsonarray=JSON.parse(this.responseText);
+                    var contents="<table border='1' style='width:100%;'><tr class='sticky'> <th>USER_ID</th> <th>ID</th> <th>TITLE</th> <th>BODY</th> </tr>";
+                    for(i=0;i<jsonarray.length;i++)
+                    {
+                        var obj=jsonarray[i];
+                        var row="<tr >"+ "<td>" + obj.userId +"</td>"
+                                        + "<td>" + obj.id +"</td>"
+                                        +"<td>"+ obj.title + "</td>"
+                                        +"<td>"+ obj.body + "</td>";
+                        
+                        contents=contents+row;
+                    }
+                    contents =contents+"</table>";
+                    document.getElementById("output").innerHTML=contents;
+            }
+            }
+            function downloadJSON()
+            {
+                alert("hello");
+                var jsonURL="https://jsonplaceholder.typicode.com/posts";
+                var httpReq = new XMLHttpRequest();
+                httpReq.onreadystatechange = dataAvailable;
+                httpReq.open("GET",jsonURL,true);
+                httpReq.send();
+            }
+        </script>
+        <style>
+            .sticky{
+                position: fixed;
+                color: red;
+                background-color: black;
+            }
+            table tr{
+                width: 25%;
+            }
+           
+            th{
+                width: 25%;
+            }
+            td{
+                width:25%;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="downloadJSON()">Download</button><br>
+        <div id="output">
+
+        </div>
+    </body>
+</html>

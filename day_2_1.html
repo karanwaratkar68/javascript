@@ -39,9 +39,9 @@
                                         +"<td>"+ obj.CONTACT + "</td>"
                                         +"<td>"+ obj.PERCENT + "</td>"
                         +"</tr>"
-                        contents+=row;
+                        contents=contents+row;
                     }
-                    contents +="</table>";
+                    contents =contents+"</table>";
                     document.getElementById("output").innerHTML=contents;
             }
             // function downloadJSON()

@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <script>
+            var myobj=[{
+                "itemname":"shoe",
+                "price":"2500",
+                "category":"personal"
+            },
+            {
+                "itemname":"T-shirt",
+                "price":"1500",
+                "category":"garments"
+
+            },
+            {
+                "itemname":"shoe",
+                "price":"350",
+                "category":"stationary"            }
+            ];
+            function dataAvailable()
+            {
+                
+                    var jsonarray=myobj;
+                    var contents="<table class='tab1'>";
+                    for(i=0;i<jsonarray.length;i++)
+                    {
+                        var obj=jsonarray[i];
+                        var row="<tr>"+ "<td>" + obj.itemname +"</td>"
+                                        + "<td>" + obj.price +"</td>"
+                                        +"<td>"+ obj.category + "</td>"
+                              +"</tr>"
+                        contents=contents+row;
+                    }
+                    contents =contents+"</table>";
+                    document.getElementById("output").innerHTML=contents;
+            }
+           
+        </script>
+        <style>
+            table{
+                border: 1;
+            }
+            .tab1 tr:nth-child(even){
+                background-color: rgb(200, 200, 231);
+            }
+            .tab1 tr:nth-child(odd){
+                background-color: royalblue;
+            }
+        </style>
+    </head>
+    <body>
+        <button style="color:aqua; background-color:black;" onclick="dataAvailable()">ADD TO TABLE</button><br>
+        <div id="output">
+
+        </div>
+    </body>
+</html>
