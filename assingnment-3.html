@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <script>
+            var obj1=[];
+            function addInTable()
+            {
+                var prn=document.getElementById("prn").value;
+                var name=document.getElementById("name").value;
+                var per=document.getElementById("per").value;
+                var obj={
+                    "prn":prn,
+                    "name":"name",
+                    "per":per
+                };
+                obj1.push(obj);
+                console.log(obj);
+                var contents="<table border='2' style='width:45%;'>";
+                for(i=0;i < obj1.length;i++)
+                {
+                    contents+="<tr style='background-color: blueviolet; width:10%; height:10%;;'><td>"+obj1[i].prn+"</td>"+"<td>"+obj1[i].name+"</td>"+"<td>"+obj1[i].per+"</td></tr>";
+                }
+                contents+="</table>";
+                var list= document.getElementById("table2");
+                list.innerHTML=contents;
+
+
+               
+            }
+        </script>
+        <style>
+        input{
+            width: 10%;
+            height: 10%;
+        }
+        </style>
+    </head>
+    <body>
+        <input id="prn"  type="number" value="Enter PRN"/>
+        <input id="name" type="text" value="Enter Name"/>
+        <input id="per" type="number" value="Enter Percentage"/>
+        <button onclick="addInTable()" >Add To Table</button>
+        <div>
+            <table id="table" border="2"  style="width: 45%; height: 40%;; background-color: blueviolet;" >
+                <tr>
+                    <td>PRN</td>
+                    <td>NAME</td>
+                    <td>PERCENTAGE</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>AMIT</td>
+                    <td>99</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>KARAN</td>
+                    <td>78</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>ADITYA</td>
+                    <td>89</td>
+                </tr>
+            </table>
+        </div>
+        <div id="table2">
+
+        </div>
+
+    </body>
+</html>
